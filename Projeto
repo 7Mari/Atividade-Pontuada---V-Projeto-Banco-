@@ -15,7 +15,36 @@ struct dados_cadastros
     float saldo;
     float dinheiroDepositado;
     float dinheiroRetirado;
+    float dinheiroEmprestimo;
 };
+
+void cadastrar (struct dados_cadastros *cadastros){
+    int contadorCadastro;
+    int i;
+    fflush(stdin);
+    printf("Insira seu nome: \n");
+    gets(cadastros[i].nome);
+    printf("_________________________________\n");
+
+    printf("\nInsira seu sobrenome: \n");
+    gets(cadastros[i].sobrenome);
+    printf("_________________________________\n");
+
+    printf("\nInsira sua data de nascimento: \n");
+    gets(cadastros[i].data);
+    printf("_________________________________\n");
+
+     printf("\nInsira seu CPF: \n");
+    gets(cadastros[i].cpf);
+    printf("_________________________________\n");
+            
+    printf("\nInsira o número da agência do seu cartão: \n");
+    gets(cadastros[i].agencia);
+    printf("_________________________________\n");
+
+    printf("Insira a quantidade de saldo: \n");
+    scanf("%f" ,&cadastros[i].saldo);       
+}
 
 void depositarEsacar(struct dados_cadastros *cadastros){
     int codigo2;
@@ -70,36 +99,22 @@ void depositarEsacar(struct dados_cadastros *cadastros){
         }
 }
 
-void cadastrar (struct dados_cadastros *cadastros){
-    int contadorCadastro;
+void fazer_emprestimo(struct dados_cadastros *cadastros){
     int i;
-    fflush(stdin);
-    printf("Insira seu nome: \n");
-    gets(cadastros[i].nome);
-    printf("_________________________________\n");
 
-    printf("\nInsira seu sobrenome: \n");
-    gets(cadastros[i].sobrenome);
-    printf("_________________________________\n");
+    printf("\t\n---Empréstimo--\n");
+    printf("\t\nMáximo de R$20.000\n");
+    printf("\t\nMinímo de R$100\n");
+    printf("--------------------------------------------\n");
+    printf("Informe a quantidade de dinheiro que desejar: \n");
+    scanf("%f" ,&cadastros[i].dinheiroEmprestimo);
 
-    printf("\nInsira sua data de nascimento: \n");
-    gets(cadastros[i].data);
-    printf("_________________________________\n");
-
-     printf("\nInsira seu CPF: \n");
-    gets(cadastros[i].cpf);
-    printf("_________________________________\n");
-            
-    printf("\nInsira o número da agência do seu cartão: \n");
-    gets(cadastros[i].agencia);
-    printf("_________________________________\n");
-
-    printf("Insira a quantidade de saldo: \n");
-    scanf("%f" ,&cadastros[i].saldo);
-            
+    if (cadastros[i].dinheiroEmprestimo >= 20000)
+    {
+        printf("o valor atingiu o limite");
+    }
     
 }
-
 
 int main(){
     setlocale(LC_ALL ,"portuguese");
